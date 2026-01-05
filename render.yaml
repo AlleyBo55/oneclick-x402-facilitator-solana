@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: x402-facilitator
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeploy: false
+    envVars:
+      - key: SOLANA_RPC_URL
+        sync: false
+      - key: SOLANA_NETWORK
+        sync: false

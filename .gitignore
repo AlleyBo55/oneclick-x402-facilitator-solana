@@ -1,0 +1,25 @@
+# Dependencies
+/vendor/
+
+# Build output
+/facilitator
+*.exe
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test
+coverage.out
+*.test

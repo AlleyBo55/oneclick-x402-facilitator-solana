@@ -1,0 +1,28 @@
+{
+    "name": "x402-facilitator",
+    "description": "Open-source x402 payment facilitator for Solana (Go). Self-host your own payment verification service.",
+    "keywords": [
+        "x402",
+        "solana",
+        "micropayments",
+        "payments",
+        "facilitator",
+        "golang"
+    ],
+    "website": "https://x402.org",
+    "repository": "https://github.com/AlleyBo55/x402-facilitator-oss",
+    "logo": "https://x402.org/favicon.ico",
+    "success_url": "/health",
+    "stack": "container",
+    "env": {
+        "SOLANA_RPC_URL": {
+            "description": "Your Solana RPC endpoint URL (e.g., from Helius, QuickNode, or Triton)",
+            "required": true
+        },
+        "SOLANA_NETWORK": {
+            "description": "Solana network: 'devnet' or 'mainnet-beta'",
+            "value": "devnet",
+            "required": false
+        }
+    }
+}
