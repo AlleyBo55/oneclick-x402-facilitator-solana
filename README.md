@@ -1,12 +1,26 @@
 # x402 Facilitator (Open Source)
 
-Self-host your own x402 payment facilitator for Solana. One-click deploy to any platform.
+> **Why pay fees?** Deploy your own x402 payment facilitator in **one click** and cut out the middleman.
+> 
+> ✅ **Self-Sovereign**: You own the infrastructure.
+> ✅ **No Platform Fees**: You only pay for your RPC and cloud hosting.
+> ✅ **Fully Configurable**: Strict control over rate limits, tokens, and networks.
+> ✅ **Open Source**: Verify the code, audit the security, and modify it to your needs.
 
 [![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AlleyBo55/oneclickfacilitator)
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template?template=https://github.com/AlleyBo55/oneclickfacilitator)
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/AlleyBo55/oneclickfacilitator)
 
-> **Full Deployment Guide**: [https://solana-x402-paywall.vercel.app/docs/deploy](https://solana-x402-paywall.vercel.app/docs/deploy) - Includes RPC configuration and visual walkthrough.
+> **Quick Start**: Pair this server with our client SDK:
+> [**@alleyboss/micropay-solana-x402-paywall**](https://www.npmjs.com/package/@alleyboss/micropay-solana-x402-paywall)
+> 
+> *Perfect for Next.js, Express, and React applications.*
+> 
+> Check out the [**Live Demo**](https://solana-x402-paywall.vercel.app) for inspiration.
+
+---
+
+**Full Deployment Guide**: [https://solana-x402-paywall.vercel.app/docs/deploy](https://solana-x402-paywall.vercel.app/docs/deploy)
 
 ## Features
 
