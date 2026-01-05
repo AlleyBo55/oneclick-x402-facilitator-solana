@@ -7,9 +7,9 @@
 > ✅ **Fully Configurable**: Strict control over rate limits, tokens, and networks.
 > ✅ **Open Source**: Verify the code, audit the security, and modify it to your needs.
 
-[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AlleyBo55/oneclickfacilitator)
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template?template=https://github.com/AlleyBo55/oneclickfacilitator)
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/AlleyBo55/oneclickfacilitator)
+[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AlleyBo55/oneclick-x402-facilitator-solana)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template?template=https://github.com/AlleyBo55/oneclick-x402-facilitator-solana)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/AlleyBo55/oneclick-x402-facilitator-solana)
 
 > **Quick Start**: Pair this server with our client SDK:
 > [**@alleyboss/micropay-solana-x402-paywall**](https://www.npmjs.com/package/@alleyboss/micropay-solana-x402-paywall)
