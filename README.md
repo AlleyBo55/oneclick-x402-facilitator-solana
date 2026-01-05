@@ -7,9 +7,17 @@
 > ✅ **Fully Configurable**: Strict control over rate limits, tokens, and networks.
 > ✅ **Open Source**: Verify the code, audit the security, and modify it to your needs.
 
-[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AlleyBo55/oneclick-x402-facilitator-solana)
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/https://github.com/AlleyBo55/oneclick-x402-facilitator-solana)
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/AlleyBo55/oneclick-x402-facilitator-solana)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.com/deploy/owL10e?referralCode=WF4b52&utm_medium=integration&utm_source=template&utm_campaign=generic)
+
+> ⚠️ **IMPORTANT: Default is Devnet!**
+> 
+> By default, the facilitator deploys with:
+> - `SOLANA_NETWORK=devnet`
+> - `SOLANA_RPC_URL=https://api.devnet.solana.com`
+>
+> **For Mainnet production**, you MUST update these environment variables in your Railway dashboard:
+> - `SOLANA_NETWORK=mainnet-beta`
+> - `SOLANA_RPC_URL=https://mainnet.helius-rpc.com/?api-key=YOUR_KEY` (or any mainnet RPC)
 
 > **Quick Start**: Pair this server with our client SDK:
 > [**@alleyboss/micropay-solana-x402-paywall**](https://www.npmjs.com/package/@alleyboss/micropay-solana-x402-paywall)
@@ -18,22 +26,26 @@
 > 
 > Check out the [**Live Demo**](https://solana-x402-paywall.vercel.app) for inspiration.
 
-## How One-Click Deploy Works
+## Frontend Configuration (Private Mode)
 
-**1. What happens when I click "Deploy to Railway/Heroku"?**
-- **Magic Link**: The button uses a "Deploy Template" URL.
-- **Platform Takeover**: This takes you to the defined platform's website.
-- **Cloning**: The platform automatically forks/clones this repository into your account.
-- **Config Prompt**: It pauses to ask: *"What value do you want for `SOLANA_RPC_URL`?"*
-- **Launch**: You paste your URL, click "Deploy", and the server spins up. You pay the provider directly; we take zero fees.
+When using your own facilitator instead of PayAI Network, configure your frontend:
 
-**2. How do I input my custom RPC URL?**
-- **During Deploy**: There will be a text box explicitly labeled `SOLANA_RPC_URL`.
-- **After Deploy**: Go to your project's "Settings" or "Variables" tab to edit `SOLANA_RPC_URL` or switch `SOLANA_NETWORK` (Devnet/Mainnet) at any time.
+```env
+# .env.local (Next.js) or environment variables
+PLATFORM_FACILITATOR_URL=https://your-app.up.railway.app
+```
+
+**Key Difference from PayAI:**
+| Config | PayAI (Hosted) | Private (Self-Hosted) |
+|--------|----------------|----------------------|
+| Env Var | Not needed | `PLATFORM_FACILITATOR_URL` required |
+| Network | Managed by PayAI | Must match your facilitator's `SOLANA_NETWORK` |
+| RPC | Shared | Your own `SOLANA_RPC_URL` |
+| Fees | PayAI fees apply | Zero platform fees |
 
 ---
 
-**Full Deployment Guide**: [https://solana-x402-paywall.vercel.app/docs/deploy](https://solana-x402-paywall.vercel.app/docs/deploy)
+**Full Deployment Guide**: [https://solana-x402-paywall.vercel.app/docs](https://solana-x402-paywall.vercel.app/docs)
 
 ## Features
 
