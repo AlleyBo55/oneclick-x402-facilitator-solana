@@ -224,8 +224,9 @@ func (f *Facilitator) fetchTransactionWithBlockTime(signature string) (*rpc.GetT
 		return nil, 0, fmt.Errorf("invalid signature: %w", err)
 	}
 
-	// Exponential backoff: 1s, 2s, 4s
-	for attempt := 0; attempt < 3; attempt++ {
+	// Exponential backoff: 2s, 4s, 8s, 16s, 32s (~60s total max)
+	// Public RPCs like api.devnet.solana.com are load-balanced; different nodes may have different sync states
+	for attempt := 0; attempt < 5; attempt++ {
 		tx, err := f.rpcClient.GetTransaction(context.Background(), sig, &rpc.GetTransactionOpts{
 			Commitment: f.commitmentLevel,
 			Encoding:   solana.EncodingBase64,
@@ -237,9 +238,9 @@ func (f *Facilitator) fetchTransactionWithBlockTime(signature string) (*rpc.GetT
 			}
 			return tx, blockTime, nil
 		}
-		time.Sleep(time.Duration(1<<attempt) * time.Second)
+		time.Sleep(time.Duration(2<<attempt) * time.Second) // 2s, 4s, 8s, 16s, 32s
 	}
-	return nil, 0, fmt.Errorf("transaction not found after 3 retries")
+	return nil, 0, fmt.Errorf("transaction not found after 5 retries")
 }
 
 // parseNativeTransfer extracts SOL transfer amount to payTo address
