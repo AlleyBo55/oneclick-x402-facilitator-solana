@@ -18,6 +18,19 @@
 > 
 > Check out the [**Live Demo**](https://solana-x402-paywall.vercel.app) for inspiration.
 
+## How One-Click Deploy Works
+
+**1. What happens when I click "Deploy to Railway/Heroku"?**
+- **Magic Link**: The button uses a "Deploy Template" URL.
+- **Platform Takeover**: This takes you to the defined platform's website.
+- **Cloning**: The platform automatically forks/clones this repository into your account.
+- **Config Prompt**: It pauses to ask: *"What value do you want for `SOLANA_RPC_URL`?"*
+- **Launch**: You paste your URL, click "Deploy", and the server spins up. You pay the provider directly; we take zero fees.
+
+**2. How do I input my custom RPC URL?**
+- **During Deploy**: There will be a text box explicitly labeled `SOLANA_RPC_URL`.
+- **After Deploy**: Go to your project's "Settings" or "Variables" tab to edit `SOLANA_RPC_URL` or switch `SOLANA_NETWORK` (Devnet/Mainnet) at any time.
+
 ---
 
 **Full Deployment Guide**: [https://solana-x402-paywall.vercel.app/docs/deploy](https://solana-x402-paywall.vercel.app/docs/deploy)
