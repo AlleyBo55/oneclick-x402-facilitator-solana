@@ -63,18 +63,16 @@ func RegisterRoutes(mux *http.ServeMux, f *facilitator.Facilitator, network stri
 		middleware.JSON(w, http.StatusOK, f.GetStats())
 	}))
 
-	// Protected endpoints
+	// Public endpoints (no auth, like PayAI)
 	mux.HandleFunc("/verify", middleware.CORS(
-		middleware.RateLimit(f.RateLimiter,
-			middleware.Auth(f.APIKey, func(w http.ResponseWriter, r *http.Request) {
-				handleVerify(f, w, r)
-			}))))
+		middleware.RateLimit(f.RateLimiter, func(w http.ResponseWriter, r *http.Request) {
+			handleVerify(f, w, r)
+		})))
 
 	mux.HandleFunc("/settle", middleware.CORS(
-		middleware.RateLimit(f.RateLimiter,
-			middleware.Auth(f.APIKey, func(w http.ResponseWriter, r *http.Request) {
-				handleSettle(f, w, r)
-			}))))
+		middleware.RateLimit(f.RateLimiter, func(w http.ResponseWriter, r *http.Request) {
+			handleSettle(f, w, r)
+		})))
 }
 
 func handleVerify(f *facilitator.Facilitator, w http.ResponseWriter, r *http.Request) {
