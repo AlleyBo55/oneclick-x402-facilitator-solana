@@ -10,7 +10,7 @@
         "golang"
     ],
     "website": "https://x402.org",
-    "repository": "https://github.com/AlleyBo55/x402-facilitator-oss",
+    "repository": "https://github.com/AlleyBo55/oneclickfacilitator",
     "logo": "https://x402.org/favicon.ico",
     "success_url": "/health",
     "stack": "container",

@@ -2,9 +2,9 @@
 
 Self-host your own x402 payment facilitator for Solana. One-click deploy to any platform.
 
-[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AlleyBo55/x402-facilitator-oss)
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template?template=https://github.com/AlleyBo55/x402-facilitator-oss)
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/AlleyBo55/x402-facilitator-oss)
+[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AlleyBo55/oneclickfacilitator)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template?template=https://github.com/AlleyBo55/oneclickfacilitator)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/AlleyBo55/oneclickfacilitator)
 
 > **Full Deployment Guide**: [https://solana-x402-paywall.vercel.app/docs/deploy](https://solana-x402-paywall.vercel.app/docs/deploy) - Includes RPC configuration and visual walkthrough.
 
