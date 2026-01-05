@@ -237,7 +237,7 @@ func (f *Facilitator) fetchTransactionWithBlockTime(signature string) (*rpc.GetT
 			}
 			return tx, blockTime, nil
 		}
-		time.Sleep(time.Duration(1<<attempt) * time.Second) // 1s, 2s, 4s
+		time.Sleep(1 * time.Second) // 1s per retry
 	}
 	return nil, 0, fmt.Errorf("transaction not found after 3 retries")
 }
