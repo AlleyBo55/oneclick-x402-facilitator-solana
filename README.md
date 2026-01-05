@@ -8,7 +8,7 @@
 > ✅ **Open Source**: Verify the code, audit the security, and modify it to your needs.
 
 [![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AlleyBo55/oneclick-x402-facilitator-solana)
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.com/deploy/https://github.com/AlleyBo55/oneclick-x402-facilitator-solana)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new?template=https%3A%2F%2Fgithub.com%2FAlleyBo55%2Foneclick-x402-facilitator-solana)
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/AlleyBo55/oneclick-x402-facilitator-solana)
 
 > **Quick Start**: Pair this server with our client SDK:
