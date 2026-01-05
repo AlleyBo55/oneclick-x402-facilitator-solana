@@ -225,10 +225,12 @@ func (f *Facilitator) fetchTransactionWithBlockTime(signature string) (*rpc.GetT
 	}
 
 	// Fast retries: 1s, 2s, 4s (7s total max)
+	maxVersion := uint64(0)
 	for attempt := 0; attempt < 3; attempt++ {
 		tx, err := f.rpcClient.GetTransaction(context.Background(), sig, &rpc.GetTransactionOpts{
-			Commitment: f.commitmentLevel,
-			Encoding:   solana.EncodingBase64,
+			Commitment:                     f.commitmentLevel,
+			Encoding:                       solana.EncodingBase64,
+			MaxSupportedTransactionVersion: &maxVersion, // Support V0 transactions
 		})
 		if err == nil && tx != nil {
 			blockTime := int64(0)
