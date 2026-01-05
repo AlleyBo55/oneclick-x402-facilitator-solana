@@ -41,7 +41,7 @@ type VerifyRequest struct {
 
 // VerifyResponse matches x402 spec
 type VerifyResponse struct {
-	IsValid       bool   `json:"isValid"`
+	IsValid       bool   `json:"valid"` // x402 spec uses "valid", not "isValid"
 	InvalidReason string `json:"invalidReason,omitempty"`
 	Payer         string `json:"payer,omitempty"`
 }
