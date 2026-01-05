@@ -17,10 +17,11 @@ func main() {
 	f := facilitator.New(cfg)
 
 	printBanner(cfg)
-	api.RegisterRoutes(f, cfg.Network)
+	mux := http.NewServeMux()
+	api.RegisterRoutes(mux, f, cfg.Network)
 
 	log.Printf("🚀 x402 Facilitator running on http://localhost:%s", cfg.Port)
-	if err := http.ListenAndServe(":"+cfg.Port, nil); err != nil {
+	if err := http.ListenAndServe(":"+cfg.Port, mux); err != nil {
 		log.Fatal(err)
 	}
 }

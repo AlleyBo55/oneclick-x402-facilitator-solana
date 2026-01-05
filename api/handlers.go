@@ -14,9 +14,9 @@ import (
 const version = "2.0.0"
 
 // RegisterRoutes registers all HTTP routes
-func RegisterRoutes(f *facilitator.Facilitator, network string) {
+func RegisterRoutes(mux *http.ServeMux, f *facilitator.Facilitator, network string) {
 	// Health check
-	http.HandleFunc("/health", middleware.CORS(func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/health", middleware.CORS(func(w http.ResponseWriter, r *http.Request) {
 		middleware.JSON(w, http.StatusOK, domain.HealthResponse{
 			Status: "ok", Version: version, Network: network,
 			Timestamp: time.Now().UTC().Format(time.RFC3339),
@@ -24,7 +24,7 @@ func RegisterRoutes(f *facilitator.Facilitator, network string) {
 	}))
 
 	// Root - API info
-	http.HandleFunc("/", middleware.CORS(func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/", middleware.CORS(func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path != "/" {
 			http.NotFound(w, r)
 			return
@@ -46,7 +46,7 @@ func RegisterRoutes(f *facilitator.Facilitator, network string) {
 	}))
 
 	// Public endpoints
-	http.HandleFunc("/supported", middleware.CORS(func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/supported", middleware.CORS(func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != "POST" {
 			middleware.JSON(w, http.StatusMethodNotAllowed, map[string]string{"error": "Method not allowed"})
 			return
@@ -54,23 +54,23 @@ func RegisterRoutes(f *facilitator.Facilitator, network string) {
 		middleware.JSON(w, http.StatusOK, f.GetSupported())
 	}))
 
-	http.HandleFunc("/metrics", middleware.CORS(func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/metrics", middleware.CORS(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/plain")
 		w.Write([]byte(f.GetPrometheus()))
 	}))
 
-	http.HandleFunc("/stats", middleware.CORS(func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/stats", middleware.CORS(func(w http.ResponseWriter, r *http.Request) {
 		middleware.JSON(w, http.StatusOK, f.GetStats())
 	}))
 
 	// Protected endpoints
-	http.HandleFunc("/verify", middleware.CORS(
+	mux.HandleFunc("/verify", middleware.CORS(
 		middleware.RateLimit(f.RateLimiter,
 			middleware.Auth(f.APIKey, func(w http.ResponseWriter, r *http.Request) {
 				handleVerify(f, w, r)
 			}))))
 
-	http.HandleFunc("/settle", middleware.CORS(
+	mux.HandleFunc("/settle", middleware.CORS(
 		middleware.RateLimit(f.RateLimiter,
 			middleware.Auth(f.APIKey, func(w http.ResponseWriter, r *http.Request) {
 				handleSettle(f, w, r)

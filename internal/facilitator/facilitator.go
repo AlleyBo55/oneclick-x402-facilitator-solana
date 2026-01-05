@@ -129,7 +129,7 @@ func (f *Facilitator) Verify(payload domain.PaymentPayload, requirements domain.
 	// 6. Fetch transaction from chain
 	tx, blockTime, err := f.fetchTransactionWithBlockTime(sig)
 	if err != nil {
-		return domain.VerifyResponse{IsValid: false, InvalidReason: "Transaction not found or not confirmed"}
+		return domain.VerifyResponse{IsValid: false, InvalidReason: fmt.Sprintf("Transaction not found or not confirmed: %v", err)}
 	}
 
 	// 7. Check transaction age (防止重放攻击)
@@ -228,6 +228,7 @@ func (f *Facilitator) fetchTransactionWithBlockTime(signature string) (*rpc.GetT
 	for attempt := 0; attempt < 3; attempt++ {
 		tx, err := f.rpcClient.GetTransaction(context.Background(), sig, &rpc.GetTransactionOpts{
 			Commitment: f.commitmentLevel,
+			Encoding:   solana.EncodingBase64,
 		})
 		if err == nil && tx != nil {
 			blockTime := int64(0)
